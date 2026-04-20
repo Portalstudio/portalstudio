@@ -1,0 +1,25 @@
+---
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Image } from "astro:assets";
+import { Button } from "@/components/ui/button";
+const props = Astro.props as {
+  title: string;
+  description: string;
+  link: string;
+  image: ImageMetadata;
+};
+---
+
+
+<Card className="max-w-md w-full">
+  <CardHeader>
+    <Image src={props.image} alt={props.title} class:list="rounded-lg"/>
+    <CardTitle className="font-semibold text-xl">{props.title}</CardTitle>
+    <CardDescription>{props.description}</CardDescription>
+  </CardHeader>
+  <CardFooter>
+    <Button className="w-full" variant="outline">
+      <a href={props.link}> Voir le projet</a>
+    </Button>
+  </CardFooter>
+</Card>

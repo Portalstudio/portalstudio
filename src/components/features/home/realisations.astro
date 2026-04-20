@@ -1,0 +1,42 @@
+---
+import parisCayenneImage from "@/assets/images/paris-cayenne.png";
+import coraImage from "@/assets/images/cora.png";
+import r2bacImage from "@/assets/images/r2bac.png";
+import ProjectCard from "@/components/ui/project-card.astro";
+const projects = [
+  {
+    title: "Paris Cayenne",
+    description: "Conception d'un site vitrine moderne pour le restaurant gastronomique Paris Cayenne en Guyane. Optimisation de l'expérience utilisateur et mise en valeur de la carte.",
+    link: "https://paris-cayenne.vercel.app/",
+    image: parisCayenneImage,
+  },
+  {
+    title: "Cora",
+    description: "Développement d'une solution de Machine Learning avec dashboard interactif dédiée à l'étude de l'avifaune en Guyane. Un projet mêlant data science et développement web.",
+    link: "https://github.com/Link34500/C.O.R.A",
+    image: coraImage,
+  },
+  {
+    title: "R2BAC",
+    description: "Plateforme éducative full-stack. Architecture robuste avec un backend Django et un front-end performant, conçue pour la réussite des étudiants.",
+    link: "https://github.com/Link34500/R2BAC",
+    image: r2bacImage,
+  },
+];
+---
+
+<section id="realisations">
+  <h2 class="text-4xl font-semibold text-center mb-8">Réalisations</h2>
+  <div class="flex flex-wrap justify-center gap-8 p-8">
+    {
+      projects.map((project) => (
+        <ProjectCard
+          title={project.title}
+          description={project.description}
+          link={project.link}
+          image={project.image}
+        />
+      ))
+    }
+  </div>
+</section>

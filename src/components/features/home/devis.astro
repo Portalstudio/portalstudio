@@ -1,0 +1,62 @@
+---
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+---
+
+<section id="devis">
+  <h2 class="text-4xl font-semibold text-center mb-8">Réaliser mon premier devis</h2>
+  <div class="flex flex-wrap justify-center gap-8 p-8">
+    <Card className="max-w-2xl w-full">
+      <CardHeader>
+        <CardTitle className="text-2xl">
+          <h3>Nous vous répondrons sous 48h</h3>
+        </CardTitle>
+      </CardHeader>
+
+      <CardContent>
+        <form action="/merci" name="devis" method="post" netlify>
+          <p style="display:none">
+            <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+          </p>
+          
+          <div class="mb-4">
+            <Label>Nom <span class="text-red-500">*</span></Label>
+            <Input type="text" name="name" placeholder="Nom..." required/>
+          </div>
+          
+          <div class="mb-4">
+            <Label>Prénom <span class="text-red-500">*</span></Label>
+            <Input type="text" name="firstname" placeholder="Prénom..." required/>
+          </div>
+          
+          <div class="mb-4">
+            <Label>Email <span class="text-red-500">*</span></Label>
+            <Input type="email" name="email" placeholder="mail@example.com..." required/>
+          </div>
+          <div class="mb-4">
+            <Label>Numéro de téléphone <span class="text-red-500">*</span></Label>
+            <Input type="tel" name="phone" placeholder="06 12 34 56 78..." required/>
+          </div>
+          
+          <div class="mb-4">
+            <Label>Entreprise</Label>
+            <Input type="text" name="company" placeholder="Entreprise..."/>
+          </div>
+          <div class="mb-4">
+            <Label>Budget</Label>
+            <Input type="number" name="budget" placeholder="Budget..." min="50"/>
+          </div>
+          <div class="mb-4">
+            <Label>Message <span class="text-red-500">*</span></Label>
+            <Textarea name="message" placeholder="Décrivez votre projet..." className="resize-none min-h-32" required/>
+          </div>
+
+          <Button type="submit" className="w-full mt-6">Soumettre le devis</Button>
+        </form>
+      </CardContent>
+    </Card>
+  </div>
+</section>

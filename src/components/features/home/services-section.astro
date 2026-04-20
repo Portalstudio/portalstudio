@@ -1,0 +1,67 @@
+---
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import WebsiteGrid from "@/components/ui/website-grid";
+import PhoneGrid from "@/components/ui/phone-grid";
+import ServerGrid from "@/components/ui/server-grid";
+---
+
+<section id="services" >
+  <h2 class="text-4xl font-semibold text-center mb-16">
+    Nos services
+  </h2>
+
+  <div class="flex flex-wrap justify-center gap-8 p-8">
+    <Card className="max-w-lg">
+      <CardHeader>
+        <WebsiteGrid className="mx-auto mb-6" client:load />
+        <CardTitle className="text-xl">
+          <h3>
+            Création de site vitrine professionnel & moderne
+          </h3>
+        </CardTitle>
+      </CardHeader>
+
+      <CardContent>
+        <p>
+          Vous n’en avez pas marre des sites en Guyane, datés de 2010 et pas adaptés aux téléphones mobiles ?
+          Nous créons des sites vitrines modernes, avec des technologies dernier cri
+          pour booster votre activité.
+        </p>
+      </CardContent>
+    </Card>
+
+    <Card className="max-w-lg w-full">
+      <CardHeader>
+        <PhoneGrid className="mx-auto mb-6" />
+        <CardTitle className="text-xl">
+        <h3>Dévelopemment d'appplication Mobile</h3>
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p>
+          Besoin d’une application mobile simple, rapide et efficace ?
+          Nous développons des applications mobiles sur mesure, pensées pour offrir
+          une expérience fluide et moderne à vos utilisateurs, sur iOS et Android.
+        </p>
+      </CardContent>
+    </Card>
+
+    <Card className="max-w-lg">
+      <CardHeader>
+        <ServerGrid className="mx-auto mb-6" />
+        <CardTitle className="text-xl">
+          <h3>Développement backend & solutions sur mesure</h3>
+        </CardTitle>
+      </CardHeader>
+
+      <CardContent>
+        <p>
+          Besoin d’une solution fiable derrière votre site ou votre application ?
+          Nous développons des systèmes backend solides et sécurisés pour gérer
+          vos données, vos utilisateurs et vos fonctionnalités métier.
+        </p>
+      </CardContent>
+    </Card>
+
+  </div>
+</section>

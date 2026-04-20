@@ -1,0 +1,153 @@
+---
+import Layout from "@/layouts/layout.astro";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { Scale, Building2, Server, User, Phone, Globe } from "lucide-react";
+
+// Données légales
+const legalData = {
+  owner: {
+    name: "Guiose Frédéric",
+    status: "Entrepreneur Individuel (EI)",
+    address: "2 RUE des Patates Douces, 97300 Cayenne, FRANCE",
+    siren: "100 283 050",
+    tva: "FR73100283050",
+    email: "contact@portalstudio.fr",
+    phone: "+594 694 95 58 17",
+  },
+  host: {
+    name: "Netlify, Inc.",
+    address: "44 Montgomery Street, Suite 300, San Francisco, California 94104",
+    website: "https://www.netlify.com",
+    contact: "support@netlify.com" 
+  }
+};
+
+const lastUpdate = "02/02/2026";
+---
+
+<Layout>
+  <main class="min-h-screen bg-background py-12 px-4 md:px-8 relative overflow-hidden">
+    <!-- Background element for aesthetic -->
+    <div class="absolute top-0 left-0 w-full h-[500px] bg-linear-to-b from-primary/5 to-transparent -z-10 pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto space-y-8">
+      
+      <!-- Header Section -->
+      <div class="text-center space-y-4 mb-12">
+        <div class="inline-flex items-center justify-center p-3 bg-primary/10 rounded-full mb-4">
+          <Scale className="w-8 h-8 text-primary" />
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-foreground">Mentions Légales</h1>
+        <p class="text-muted-foreground text-lg max-w-2xl mx-auto">
+          En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique.
+        </p>
+        <Badge variant="outline" className="mt-4 text-md py-1 px-4 border-primary/20 bg-background/50 backdrop-blur">
+          Mise à jour le {lastUpdate}
+        </Badge>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        
+        <!-- Éditeur du site -->
+        <Card className="border-none shadow-lg bg-card/50 backdrop-blur-sm h-full">
+            <CardHeader>
+              <CardTitle className="text-2xl flex items-center gap-2">
+                <User className="w-6 h-6 text-primary" />
+                Éditeur du Site
+              </CardTitle>
+              <CardDescription>Propriétaire et responsable de la publication.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+                <div class="space-y-1">
+                    <p class="font-semibold text-lg">{legalData.owner.name}</p>
+                    <p class="text-muted-foreground">{legalData.owner.status}</p>
+                </div>
+                
+                <Separator />
+
+                <div class="space-y-2">
+                     <div class="flex items-start gap-2 text-muted-foreground">
+                        <Building2 className="w-5 h-5 shrink-0 mt-0.5 text-primary/70" />
+                        <p>{legalData.owner.address}</p>
+                    </div>
+                </div>
+
+                <Separator />
+
+                <div class="space-y-3">
+                     <p class="font-medium">Identifiants légaux</p>
+                     <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-muted/50 p-3 rounded-lg border border-border/50">
+                            <span class="block text-xs uppercase text-muted-foreground mb-1">SIREN</span>
+                            <span class="font-mono text-sm">{legalData.owner.siren}</span>
+                        </div>
+                         <div class="bg-muted/50 p-3 rounded-lg border border-border/50">
+                            <span class="block text-xs uppercase text-muted-foreground mb-1">TVA Intracom.</span>
+                            <span class="font-mono text-sm">{legalData.owner.tva}</span>
+                        </div>
+                     </div>
+                </div>
+
+                 <Separator />
+
+                <div class="space-y-2">
+                    <p class="font-medium">Contact</p>
+                    <div class="flex flex-col gap-2">
+                        <a href={`mailto:${legalData.owner.email}`} class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                            <Globe className="w-4 h-4" />
+                            {legalData.owner.email}
+                        </a>
+                        <a href={`tel:${legalData.owner.phone}`} class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                            <Phone className="w-4 h-4" />
+                            {legalData.owner.phone}
+                        </a>
+                    </div>
+                </div>
+
+            </CardContent>
+        </Card>
+
+        <!-- Hébergeur -->
+        <Card className="border-none shadow-lg bg-card/50 backdrop-blur-sm h-fit">
+            <CardHeader>
+              <CardTitle className="text-2xl flex items-center gap-2">
+                <Server className="w-6 h-6 text-primary" />
+                Hébergement
+              </CardTitle>
+              <CardDescription>Prestataire assurant le stockage direct et permanent.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+                <div class="space-y-1">
+                    <p class="font-semibold text-lg">{legalData.host.name}</p>
+                    <p class="text-muted-foreground flex items-start gap-2">
+                        <Building2 className="w-4 h-4 shrink-0 mt-1 text-primary/70" />
+                        {legalData.host.address}
+                    </p>
+                </div>
+                
+                <Separator />
+
+                 <div class="space-y-2">
+                    <p class="font-medium">Contact Hébergeur</p>
+                    <div class="flex flex-col gap-2">
+                         <a href={legalData.host.website} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                            <Globe className="w-4 h-4" />
+                            Site web officiel
+                        </a>
+                    </div>
+                </div>
+            </CardContent>
+        </Card>
+
+      </div>
+    </div>
+  </main>
+</Layout>

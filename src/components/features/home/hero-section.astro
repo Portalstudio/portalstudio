@@ -1,0 +1,31 @@
+---
+import { Button } from "@/components/ui/button";
+import Logo from "@/components/ui/logo";
+import { ArrowRight } from "lucide-react";
+---
+
+<section class="min-h-screen flex items-center justify-center bg-background w-full">
+  <div class="absolute inset-0 bg-linear-to-b from-primary/5 to-transparent pointer-events-none" />
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+    <div class="text-center space-y-8">
+      <Logo className="w-24 mx-auto"/>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl text-foreground max-w-4xl mx-auto leading-tight">
+        Créez votre site internet et transformez l’image de votre entreprise en
+        Guyane
+      </h1>
+
+      <h2 class="text-lg sm:text-xl lg:text-2xl text-foreground/60 max-w-2xl mx-auto leading-relaxed">
+        Agence de développement web & mobile en Guyane pour professionnels et
+        commerces locaux.
+
+      </h2>
+      <a href="#devis">
+      <Button size="lg">
+        Demander un devis
+        <ArrowRight size={20}/>
+      </Button>
+      </a>
+    </div>
+  </div>
+</section>
