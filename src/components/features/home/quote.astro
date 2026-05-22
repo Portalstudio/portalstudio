@@ -72,7 +72,8 @@ import SectionDescription from "@/components/ui/section-description.astro";
             <label for="phone" class="text-sm font-medium text-foreground/80">
               Téléphone <span class="text-red-500/80">*</span>
             </label>
-            <PhoneInputField name="phone" required client:load />
+            <input type="hidden" name="phone" id="phone-hidden" />
+            <PhoneInputField required client:load />
           </div>
 
           <div class="space-y-3">

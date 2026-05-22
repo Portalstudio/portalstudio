@@ -1,9 +1,8 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import PhoneInput, { type Value, type Country } from "react-phone-number-input"
 import "react-phone-number-input/style.css"
 
 interface PhoneInputFieldProps {
-  name?: string
   required?: boolean
 }
 
@@ -11,8 +10,15 @@ const COUNTRIES: Country[] = [
   "GF", "FR", "GP", "MQ", "SR", "GY",
 ]
 
-export function PhoneInputField({ name, required }: PhoneInputFieldProps) {
+export function PhoneInputField({ required }: PhoneInputFieldProps) {
   const [value, setValue] = useState<Value | undefined>()
+
+  useEffect(() => {
+    const hidden = document.getElementById("phone-hidden") as HTMLInputElement | null
+    if (hidden) {
+      hidden.value = value ?? ""
+    }
+  }, [value])
 
   return (
     <PhoneInput
@@ -21,7 +27,6 @@ export function PhoneInputField({ name, required }: PhoneInputFieldProps) {
       value={value}
       onChange={setValue}
       numberInputProps={{
-        name,
         required,
       }}
       addInternationalOption={false}
