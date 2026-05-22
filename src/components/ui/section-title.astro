@@ -1,0 +1,18 @@
+---
+interface Props {
+  eyebrow?: string;
+}
+
+const { eyebrow } = Astro.props;
+---
+
+{
+  eyebrow ? (
+    <p class="text-primary mb-3 text-xs font-semibold uppercase tracking-widest">
+      {eyebrow}
+    </p>
+  ) : null
+}
+<h2 class="text-foreground text-3xl font-semibold tracking-tight sm:text-4xl">
+  <slot />
+</h2>

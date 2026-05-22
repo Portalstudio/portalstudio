@@ -14,11 +14,14 @@ import { Scale, Building2, Server, User, Phone, Globe } from "lucide-react";
 // Données légales
 const legalData = {
   owner: {
-    name: "Guiose Frédéric",
-    status: "Entrepreneur Individuel (EI)",
-    address: "2 RUE des Patates Douces, 97300 Cayenne, FRANCE",
-    siren: "100 283 050",
-    tva: "FR73100283050",
+    name: "GUIOSE ARENA",
+    status: "Entrepreneur individuel",
+    address: "51 RUE du Ménil, 92600 Asnières-sur-Seine, FRANCE",
+    siren: "898 821 749",
+    siret: "898 821 749 00022",
+    tva: "FR89898821749",
+    activity: "6201Z - Programmation informatique",
+    rneDate: "29 avril 2021",
     email: "contact@portalstudio.fr",
     phone: "+594 694 95 58 17",
   },
@@ -26,11 +29,11 @@ const legalData = {
     name: "Netlify, Inc.",
     address: "44 Montgomery Street, Suite 300, San Francisco, California 94104",
     website: "https://www.netlify.com",
-    contact: "support@netlify.com" 
-  }
+    contact: "support@netlify.com",
+  },
 };
 
-const lastUpdate = "02/02/2026";
+const lastUpdate = "23/05/2026";
 ---
 
 <Layout>
@@ -70,8 +73,15 @@ const lastUpdate = "02/02/2026";
                     <p class="font-semibold text-lg">{legalData.owner.name}</p>
                     <p class="text-muted-foreground">{legalData.owner.status}</p>
                 </div>
-                
+
                 <Separator />
+
+                <div class="space-y-1">
+                    <p class="text-sm text-muted-foreground flex items-center gap-2">
+                        <Scale className="w-4 h-4 shrink-0 text-primary/70" />
+                        <a href="https://data.inpi.fr/export/companies?format=pdf&ids=[%22898821749%22]" target="_blank" rel="noopener noreferrer" class="hover:underline underline-offset-2">Immatriculé au RNE le {legalData.owner.rneDate}</a>
+                    </p>
+                </div>
 
                 <div class="space-y-2">
                      <div class="flex items-start gap-2 text-muted-foreground">
@@ -89,9 +99,17 @@ const lastUpdate = "02/02/2026";
                             <span class="block text-xs uppercase text-muted-foreground mb-1">SIREN</span>
                             <span class="font-mono text-sm">{legalData.owner.siren}</span>
                         </div>
-                         <div class="bg-muted/50 p-3 rounded-lg border border-border/50">
-                            <span class="block text-xs uppercase text-muted-foreground mb-1">TVA Intracom.</span>
+                        <div class="bg-muted/50 p-3 rounded-lg border border-border/50">
+                            <span class="block text-xs uppercase text-muted-foreground mb-1">SIRET</span>
+                            <span class="font-mono text-sm">{legalData.owner.siret}</span>
+                        </div>
+                        <div class="bg-muted/50 p-3 rounded-lg border border-border/50">
+                            <span class="block text-xs uppercase text-muted-foreground mb-1">TVA</span>
                             <span class="font-mono text-sm">{legalData.owner.tva}</span>
+                        </div>
+                        <div class="bg-muted/50 p-3 rounded-lg border border-border/50">
+                            <span class="block text-xs uppercase text-muted-foreground mb-1">NAF / APE</span>
+                            <span class="font-mono text-sm">{legalData.owner.activity}</span>
                         </div>
                      </div>
                 </div>

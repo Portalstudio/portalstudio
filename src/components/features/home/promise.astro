@@ -1,0 +1,55 @@
+---
+import Section from "@/components/ui/section.astro";
+import SectionTitle from "@/components/ui/section-title.astro";
+import SectionDescription from "@/components/ui/section-description.astro";
+import { FadeContent } from "@/components/ui/fade-content";
+import { Card } from "@/components/ui/card";
+import { Focus, Eye, ArrowRight } from "lucide-react";
+
+const promises = [
+  {
+    icon: Focus,
+    title: "Une image à la hauteur de votre établissement",
+    description: "Chaque détail de votre présence en ligne reflète votre exigence et renforce votre positionnement haut de gamme.",
+  },
+  {
+    icon: Eye,
+    title: "Donnez envie avant même la première visite",
+    description: "Votre site devient une extension de l'expérience vécue en salle, un avant-goût qui suscite l'envie.",
+  },
+  {
+    icon: ArrowRight,
+    title: "Transformez l'intérêt en réservation",
+    description: "Un parcours fluide, pensé pour guider naturellement vos clients jusqu'à l'action, sans friction.",
+  },
+];
+---
+
+<Section>
+  <div class="text-center mb-16">
+    <FadeContent client:visible>
+      <SectionTitle eyebrow="Notre promesse">
+        Bien plus qu'un site.
+      </SectionTitle>
+      <SectionDescription>
+        Une expérience pensée pour refléter votre niveau, susciter l'envie et déclencher la réservation.
+      </SectionDescription>
+    </FadeContent>
+  </div>
+
+  <div class="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {promises.map(({ icon: Icon, title, description }, idx) => (
+      <FadeContent client:visible delay={100 + idx * 100}>
+        <Card className="bg-card/40 border-foreground/10 p-6 sm:p-8 shadow-none gap-4 transition-all duration-500 hover:border-white/15 hover:shadow-[0_0_30px_-10px_rgba(255,255,255,0.06)]">
+
+          <h3 class="text-foreground text-lg font-semibold tracking-tight leading-none mt-4">
+            {title}
+          </h3>
+          <p class="text-muted-foreground text-sm leading-relaxed">
+            {description}
+          </p>
+        </Card>
+      </FadeContent>
+    ))}
+  </div>
+</Section>

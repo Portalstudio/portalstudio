@@ -1,0 +1,21 @@
+---
+import SectionDescription from "@/components/ui/section-description.astro";
+import SectionTitle from "@/components/ui/section-title.astro";
+import Section from "@/components/ui/section.astro";
+import { FadeContent } from "@/components/ui/fade-content";
+import { PositioningData } from "./positioning-data";
+
+---
+<Section>
+  <div class="mx-auto mb-10 max-w-3xl text-center lg:mb-14">
+    <FadeContent client:visible>
+      <SectionTitle eyebrow="Positionnement">
+        Nous ne travaillons qu'avec un nombre limité d'établissements.
+      </SectionTitle>
+      <SectionDescription>
+        Portalstudio accompagne uniquement les lieux pour qui la présence digitale est un levier de positionnement, pas un simple support.
+      </SectionDescription>
+    </FadeContent>
+  </div>
+  <PositioningData />
+</Section>

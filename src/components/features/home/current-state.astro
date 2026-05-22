@@ -1,0 +1,69 @@
+---
+import Section from "@/components/ui/section.astro";
+import SectionDescription from "@/components/ui/section-description.astro";
+import SectionTitle from "@/components/ui/section-title.astro";
+import { FadeContent } from "@/components/ui/fade-content";
+import { Card } from "@/components/ui/card";
+
+const painPoints = [
+  "Ne reflète pas votre prestige",
+  "Ne donne pas envie de réserver",
+  "Vous fait perdre des clients avant même qu'ils ne vous découvrent",
+];
+---
+
+<Section id="problematiques" innerClass="lg:py-24">
+  <div class="contents" slot="intro">
+    <FadeContent client:visible>
+      <SectionTitle eyebrow="Actuellement">
+        Votre établissement est peut-être excellent
+      </SectionTitle>
+      <SectionDescription>
+        L'expérience en ligne perçue se joue en quelques secondes.
+      </SectionDescription>
+    </FadeContent>
+  </div>
+
+  <div class="mx-auto grid max-w-6xl gap-12 lg:grid-cols-5 lg:gap-16 items-center">
+    <div class="lg:col-span-2 space-y-6">
+      <FadeContent client:visible delay={100}>
+        <p class="text-foreground text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+          Mais votre image numérique actuelle
+        </p>
+      </FadeContent>
+      <FadeContent client:visible delay={200}>
+        <p class="text-muted-foreground text-base sm:text-lg leading-relaxed">
+          Pendant que vos concurrents captent l'attention, votre empreinte digitale reste en retrait, et avec elle, des clients qui ne franchiront jamais votre porte.
+        </p>
+      </FadeContent>
+    </div>
+
+    <div class="lg:col-span-3 space-y-10">
+      <FadeContent client:visible delay={300}>
+        <div class="grid gap-5" style="grid-auto-rows: 1fr;">
+          {painPoints.map((point, idx) => (
+            <Card
+              key={idx}
+              className="flex-row items-center gap-4 border-foreground/10 bg-card/30 px-6 py-5 shadow-none transition-all duration-300 hover:border-foreground/20"
+            >
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-foreground/5 text-sm font-medium text-foreground/40">
+                {idx + 1}
+              </span>
+              <p class="text-foreground text-base sm:text-lg font-medium leading-snug">
+                {point}
+              </p>
+            </Card>
+          ))}
+        </div>
+      </FadeContent>
+
+      <FadeContent client:visible delay={500}>
+        <div class="flex justify-center text-foreground/20">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M12 5v14M5 12l7 7 7-7" />
+          </svg>
+        </div>
+      </FadeContent>
+    </div>
+  </div>
+</Section>

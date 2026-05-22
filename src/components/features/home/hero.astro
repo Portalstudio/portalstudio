@@ -1,0 +1,50 @@
+---
+import { Button } from "@/components/ui/button";
+import { FadeContent } from "@/components/ui/fade-content";
+import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
+import { ArrowRight } from "lucide-react";
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0 bg-background" />
+  <div
+    class="absolute inset-0 opacity-[0.04]"
+    style="background-image: 
+      linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px);
+      background-size: 64px 64px;"
+  />
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--color-primary)_0%,transparent_70%)] opacity-[0.06]" />
+
+  <div class="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 py-20 lg:py-32 text-center">
+    <FadeContent client:visible>
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-foreground/30 mb-8">
+        PORTALSTUDIO
+      </p>
+    </FadeContent>
+
+    <FadeContent client:visible delay={150}>
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl text-foreground max-w-4xl mx-auto leading-[1.05] tracking-[-0.03em] font-semibold">
+        Votre établissement fait<br>
+        <AnimatedShinyText>la réputation</AnimatedShinyText> de la Guyane.
+      </h1>
+    </FadeContent>
+
+    <FadeContent client:visible delay={300}>
+      <p class="text-lg sm:text-xl text-foreground/45 max-w-2xl mx-auto mt-8 leading-relaxed tracking-tight">
+        Vos clients vous cherchent. Nous les aidons à vous trouver.
+      </p>
+    </FadeContent>
+
+    <FadeContent client:visible delay={450}>
+      <div class="mt-10 flex items-center justify-center gap-4">
+        <a href="#devis">
+          <Button variant="glow" size="lg">
+            Demander une évaluation privée
+            <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+          </Button>
+        </a>
+      </div>
+    </FadeContent>
+  </div>
+</section>

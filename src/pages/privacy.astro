@@ -6,32 +6,27 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-  CardFooter
 } from "@/components/ui/card";
 import AccordionSection from "@/components/features/privacy/accordion-section";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button";
-import { FileText, Shield, Lock, Eye, Building2, Download } from "lucide-react";
+import { FileText, Shield, Lock, Building2 } from "lucide-react";
 
 // Données de l'entreprise
 const companyData = {
-  name: "Portalstudio EI",
-  commercialName: "Portal Studio",
-  siren: "898821749",
-  siret: "89882174900022",
-  address: "Rue du Ménil, 92600 Asnières-sur-Seine, France",
-  activity: "Programmation informatique (6201Z)",
+  name: "GUIOSE ARENA",
+  commercialName: "Portalstudio",
+  address: "51 RUE du Ménil, 92600 Asnières-sur-Seine, FRANCE",
   email: "contact@portalstudio.fr",
   phone: "+594 694 95 58 17",
   website: "portalstudio.fr"
 };
 
-const lastUpdate = "14/04/2026";
+const lastUpdate = "23/05/2026";
 ---
 
 <Layout>
-  <main class="min-h-screen bg-background py-12 px-4 md:px-8 relative overflow-hidden">
+  <main class="min-h-screen bg-background py-12 px-5 md:px-8 relative overflow-hidden">
     <div class="absolute top-0 left-0 w-full h-[500px] bg-linear-to-b from-primary/5 to-transparent -z-10 pointer-events-none"></div>
 
     <div class="max-w-4xl mx-auto space-y-8">
@@ -110,29 +105,12 @@ const lastUpdate = "14/04/2026";
                <Separator />
 
               <div class="space-y-1">
-                <p class="font-semibold text-foreground">Immatriculation</p>
-                <div class="flex flex-col gap-1">
-                    <p class="text-muted-foreground">SIREN : {companyData.siren}</p>
-                    <p class="text-muted-foreground">SIRET : {companyData.siret}</p>
-                    <p class="text-muted-foreground">APE : {companyData.activity}</p>
-                </div>
-              </div>
-
-              <Separator />
-
-              <div class="space-y-1">
                 <p class="font-semibold text-foreground">Contact</p>
                 <p class="text-muted-foreground"><a href={`mailto:${companyData.email}`} class="hover:text-primary transition-colors">{companyData.email}</a></p>
                 <p class="text-muted-foreground">{companyData.phone}</p>
               </div>
 
             </CardContent>
-            <CardFooter className="pt-4 h-full flex items-end">
-               <a href='https://data.inpi.fr/export/companies?format=pdf&ids=["100283050"]&est=all'><Button variant="outline" className="w-full gap-2 text-xs">
-                 <Download className="w-3 h-3" />
-                 Télécharger l'attestation RNE
-               </Button></a>
-            </CardFooter>
           </Card>
 
         </div>

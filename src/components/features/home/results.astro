@@ -1,0 +1,65 @@
+---
+import SectionDescription from "@/components/ui/section-description.astro";
+import SectionTitle from "@/components/ui/section-title.astro";
+import Section from "@/components/ui/section.astro";
+import { FadeContent } from "@/components/ui/fade-content";
+import { Card } from "@/components/ui/card";
+import { Eye, CalendarCheck, Clock } from "lucide-react";
+
+const metrics = [
+  {
+    icon: Eye,
+    stat: "Projection",
+    title: "Vos clients comprennent immédiatement l'expérience que vous proposez.",
+    description: "Ils se projettent… et passent à l'action.",
+  },
+  {
+    icon: CalendarCheck,
+    stat: "Fluidité",
+    title: "Un parcours qui mène naturellement à la réservation.",
+    description: "Moins d'hésitation, moins de friction. Un flux continu jusqu'à l'action.",
+  },
+  {
+    icon: Clock,
+    stat: "Disponibilité",
+    title: "Une présence qui travaille pour vous, 24h/24 et 7j/7.",
+    description: "Votre site devient un levier permanent pour valoriser votre image et soutenir votre activité.",
+  },
+];
+---
+
+<Section>
+  <div class="text-center mb-16">
+    <FadeContent client:visible>
+      <SectionTitle eyebrow="résultats">
+        Un site réussi n'est pas seulement esthétique.
+      </SectionTitle>
+      <SectionDescription>
+        Il transforme la perception de votre établissement… et influence directement la décision de réserver.
+      </SectionDescription>
+    </FadeContent>
+  </div>
+
+  <div class="mx-auto grid max-w-5xl gap-4 sm:grid-cols-3 items-stretch">
+    {metrics.map(({ icon: Icon, stat, title, description }, idx) => (
+      <FadeContent client:visible delay={100 + idx * 100} className="flex">
+        <Card className="bg-card/30 border-foreground/10 p-6 sm:p-8 shadow-none gap-4 h-full transition-all duration-500 hover:border-white/15 hover:bg-card/50">
+          <div class="flex items-center gap-3">
+            <div>
+              <Icon size={16} className="text-foreground/60" />
+            </div>
+            <span class="text-xs font-semibold uppercase tracking-[0.15em] text-foreground/30">
+              {stat}
+            </span>
+          </div>
+          <h3 class="text-foreground text-base font-semibold leading-snug tracking-tight">
+            {title}
+          </h3>
+          <p class="text-muted-foreground text-sm leading-relaxed">
+            {description}
+          </p>
+        </Card>
+      </FadeContent>
+    ))}
+  </div>
+</Section>

@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "skills": {
+    "astro-basics": {
+      "source": "FabienSalles/claude-marketplace",
+      "sourceType": "github",
+      "skillPath": "plugins/astro/skills/astro-basics/SKILL.md",
+      "computedHash": "1d5a6c755f6d483d2b36d102456039fc71b4912f579ebfb1d76d88d759cf92dc"
+    },
+    "astro-react": {
+      "source": "FabienSalles/claude-marketplace",
+      "sourceType": "github",
+      "skillPath": "plugins/astro/skills/astro-react/SKILL.md",
+      "computedHash": "3d35a27e1e353ff55851cc6b665bd355019ff27f25d6a9b66e61c68fd51c5d56"
+    },
+    "astro-routing": {
+      "source": "FabienSalles/claude-marketplace",
+      "sourceType": "github",
+      "skillPath": "plugins/astro/skills/astro-routing/SKILL.md",
+      "computedHash": "9a7557458e26f2c8ace8fd2ace7d04d121b3a6f68316cd2db3e0f4045e8412b1"
+    },
+    "astro-seo": {
+      "source": "FabienSalles/claude-marketplace",
+      "sourceType": "github",
+      "skillPath": "plugins/astro/skills/astro-seo/SKILL.md",
+      "computedHash": "88f7f09189c54c995e9c628a57a46fff57e092b50d3ed5e4aa6d4d93ae7a5b52"
+    },
+    "astro-sitemap": {
+      "source": "FabienSalles/claude-marketplace",
+      "sourceType": "github",
+      "skillPath": "plugins/astro/skills/astro-sitemap/SKILL.md",
+      "computedHash": "00ef4ff0cb69862215d1c673d791123de474c57f31ebeb934b04fc24d15c5602"
+    },
+    "astro-tailwind": {
+      "source": "FabienSalles/claude-marketplace",
+      "sourceType": "github",
+      "skillPath": "plugins/astro/skills/astro-tailwind/SKILL.md",
+      "computedHash": "545b8b916152d2f9749d55be49dd2115f5a4f2e793a23a338364348c25f07390"
+    },
+    "frontend-best-practices": {
+      "source": "FabienSalles/claude-marketplace",
+      "sourceType": "github",
+      "skillPath": "plugins/frontend/skills/frontend-best-practices/SKILL.md",
+      "computedHash": "782943516b9ebd7c79c71d2121d5e7b43a4f9541129277a1dfd821deab0d4e5f"
+    },
+    "frontend-clean-architecture": {
+      "source": "FabienSalles/claude-marketplace",
+      "sourceType": "github",
+      "skillPath": "plugins/frontend/skills/frontend-clean-architecture/SKILL.md",
+      "computedHash": "15e9792bf0c83fcbc17e5674b6f0392394e782f849d9420931353db8fadfe081"
+    },
+    "frontend-component-patterns": {
+      "source": "FabienSalles/claude-marketplace",
+      "sourceType": "github",
+      "skillPath": "plugins/frontend/skills/frontend-component-patterns/SKILL.md",
+      "computedHash": "8d71b86639555978aa5f53c686ff29b693de8c31de50c2ea25124a2448e3c9ce"
+    },
+    "ts-code-conventions": {
+      "source": "FabienSalles/claude-marketplace",
+      "sourceType": "github",
+      "skillPath": "plugins/typescript/skills/ts-code-conventions/SKILL.md",
+      "computedHash": "4cd59a6c97980941f86471c161223deca4805f7b841e39c6878e37062680ce2a"
+    },
+    "ts-conventions": {
+      "source": "FabienSalles/claude-marketplace",
+      "sourceType": "github",
+      "skillPath": "plugins/typescript/skills/ts-conventions/SKILL.md",
+      "computedHash": "a4c2b74204ea433f765a1f7a2b48290d7eac46ae645bc9005b17ac62a787aa70"
+    }
+  }
+}

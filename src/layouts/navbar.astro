@@ -1,36 +1,12 @@
 ---
-import { Button } from "@/components/ui/button";
 import Logo from "@/components/ui/logo";
-import {MenuBar} from "@/components/features/menu-bar";
-
-
-const navLinks = [
-  {href:"/",label:"Accueil"},
-  {href:"#services",label:"Services"},
-  {href:"#realisations",label:"Réalisations"},
-];
-
-const navButtons = [
-  {href:"#devis",label:"Demander un devis"}
-];
 ---
 
-
-<header class="h-16 flex items-center justify-between bg-transparent  w-full px-8 z-50 backdrop-blur-2xl sticky top-0">
-  <div class="flex gap-3 justify-center items-center">
-    <Logo className="w-12"/>
-    Portal Studio
-  </div>
-  <nav class="hidden lg:block">
-    <ul class="flex justify-center items-center gap-8">
-      {navLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
-    </ul>
-  </nav>
-
-  <div class="hidden lg:flex">
-    <Button>{navButtons.map((button) => <a href={button.href}>{button.label}</a>)}</Button>
-  </div>
-
-  <MenuBar navLinks={navLinks} navButtons={navButtons} client:load/>
-  
+<header
+  class="fixed top-0 right-0 left-0 z-50 h-16 flex w-full items-center justify-between bg-transparent px-8 backdrop-blur-2xl"
+>
+  <a href="/" class="flex gap-3 justify-center items-center">
+    <Logo className="w-12" />
+    Portalstudio
+  </a>
 </header>

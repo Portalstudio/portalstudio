@@ -1,0 +1,39 @@
+---
+import { cn } from "@/lib/utils";
+
+interface Props {
+  id?: string;
+  class?: string;
+  innerClass?: string;
+  /** Espacement sous le bloc titre (intro) */
+  introSpacing?: "default" | "compact";
+}
+
+const {
+  id,
+  class: className,
+  innerClass,
+  introSpacing = "default",
+} = Astro.props;
+
+const innerBase =
+  "mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28";
+
+const introHeaderClass =
+  introSpacing === "compact"
+    ? "mx-auto mb-12 max-w-2xl text-center lg:mb-16"
+    : "mx-auto mb-14 max-w-2xl text-center lg:mb-20";
+---
+
+<section id={id} class:list={["scroll-mt-20", className]}>
+  <div class={cn(innerBase, innerClass)}>
+    {
+      Astro.slots.has("intro") && (
+        <header class={introHeaderClass}>
+          <slot name="intro" />
+        </header>
+      )
+    }
+    <slot />
+  </div>
+</section>

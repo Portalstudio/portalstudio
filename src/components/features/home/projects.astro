@@ -1,0 +1,95 @@
+---
+import { Image } from "astro:assets";
+import parisCayenneImage from "@/assets/images/paris-cayenne.png";
+import Section from "@/components/ui/section.astro";
+import SectionDescription from "@/components/ui/section-description.astro";
+import SectionTitle from "@/components/ui/section-title.astro";
+
+type ClientStory = {
+  name: string;
+  context: string;
+  image: ImageMetadata;
+  imageAlt: string;
+  problem: string;
+  solution: string;
+  link?: string;
+  linkLabel?: string;
+};
+const clients: ClientStory[] = [
+];
+---
+
+{clients.length > 0 ? <Section id="realisations">
+  <div class="contents" slot="intro">
+    <SectionTitle eyebrow="Réalisations">
+      Des clients servis, des problèmes résolus
+    </SectionTitle>
+    <SectionDescription>
+      Chaque collaboration part d’un besoin concret. Voici comment nous avons aidé des
+      acteurs de terrain à mieux se présenter et à simplifier le parcours de leurs clients.
+    </SectionDescription>
+  </div>
+
+  <div class="flex flex-col gap-16 lg:gap-24">
+      {
+        clients.map((client) => (
+          <article
+            class="bg-card grid gap-8 overflow-hidden rounded-2xl border border-foreground/10 p-6 shadow-sm sm:p-8 lg:grid-cols-12 lg:gap-10 lg:p-10"
+          >
+            <div class="lg:col-span-5">
+              <div class="border-border/60 relative aspect-4/3 overflow-hidden rounded-xl border sm:aspect-5/4">
+                <Image
+                  src={client.image}
+                  alt={client.imageAlt}
+                  class="h-full w-full object-cover"
+                  widths={[480, 720, 960]}
+                  sizes="(max-width: 1024px) 100vw, 38vw"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+
+            <div class="flex flex-col justify-center lg:col-span-7">
+              <div class="mb-6">
+                <h3 class="text-foreground text-2xl font-semibold tracking-tight">
+                  {client.name}
+                </h3>
+                <p class="text-muted-foreground mt-1 text-sm">{client.context}</p>
+              </div>
+
+              <div class="space-y-8">
+                <div>
+                  <p class="text-muted-foreground mb-2 text-xs font-semibold uppercase tracking-wider">
+                    Leur besoin
+                  </p>
+                  <p class="text-foreground/90 leading-relaxed">{client.problem}</p>
+                </div>
+
+                <div class="space-y-8">
+                  <p class="relative mb-3 text-xs font-semibold uppercase tracking-wider text-foreground/80">
+                    Notre solution
+                  </p>
+                  <p class="text-foreground leading-relaxed">{client.solution}</p>
+                </div>
+              </div>
+
+              {client.link ? (
+                <p class="mt-8">
+                  <a
+                    href={client.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-primary hover:text-primary/90 inline-flex items-center gap-1 text-sm font-medium underline-offset-4 transition-colors hover:underline"
+                  >
+                    {client.linkLabel ?? "Voir le projet"}
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                </p>
+              ) : null}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+</Section> : <div></div>}

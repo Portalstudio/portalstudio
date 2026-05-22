@@ -1,16 +1,24 @@
 ---
-import ServicesSection from '@/components/features/home/services-section.astro';
 import Layout from '../layouts/layout.astro';
-import Hero from '@/components/features/home/hero-section.astro';
-import Realisations from '@/components/features/home/realisations.astro';
-import Devis from '@/components/features/home/devis.astro';
+import Hero from '@/components/features/home/hero.astro';
+import CurrentState from '@/components/features/home/current-state.astro';
+import Positioning from '@/components/features/home/positioning.astro';
+import Promise from '@/components/features/home/promise.astro';
+import Approach from '@/components/features/home/approach.astro';
+import Results from '@/components/features/home/results.astro';
+import Projects from '@/components/features/home/projects.astro';
+import Quote from '@/components/features/home/quote.astro';
 ---
 
 <Layout>
   <main>
-    <Hero/>
-    <ServicesSection/>
-    <Realisations/>
-    <Devis/>
+    <Hero />
+    <CurrentState />
+    <Positioning />
+    <Promise />
+    <Approach />
+    <Results />
+    <Projects />
+    <Quote />
   </main>
 </Layout>
