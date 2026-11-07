@@ -13,12 +13,11 @@ import WhatsappButton from "@/components/ui/whatsapp-button.astro";
   <!--
     Bouton caché tant qu'un bouton « passage sur place » de la page est visible
     (en-tête ou bloc contact) : il « monte » dans la barre quand on scrolle.
-    Animation sur mobile uniquement ; sur grand écran il apparaît sans transition.
   -->
   <div
     id="nav-cta"
     data-visible="false"
-    class="transition-all duration-300 ease-out data-[visible=false]:pointer-events-none data-[visible=false]:translate-y-3 data-[visible=false]:opacity-0 motion-reduce:transition-none lg:transition-none lg:data-[visible=false]:translate-y-0"
+    class="transition-all duration-300 ease-out data-[visible=false]:pointer-events-none data-[visible=false]:translate-y-3 data-[visible=false]:opacity-0 motion-reduce:transition-none"
   >
     <WhatsappButton size="nav" />
   </div>
