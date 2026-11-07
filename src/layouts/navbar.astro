@@ -10,5 +10,41 @@ import WhatsappButton from "@/components/ui/whatsapp-button.astro";
     <Logo className="w-10 sm:w-12" />
     <span class="hidden min-[400px]:inline">Portalstudio</span>
   </a>
-  <WhatsappButton size="nav" />
+  <!--
+    Bouton caché tant qu'un bouton « passage sur place » de la page est visible
+    (en-tête ou bloc contact) : il « monte » dans la barre quand on scrolle.
+  -->
+  <div
+    id="nav-cta"
+    data-visible="false"
+    class="transition-all duration-300 ease-out data-[visible=false]:pointer-events-none data-[visible=false]:translate-y-3 data-[visible=false]:opacity-0 motion-reduce:transition-none"
+  >
+    <WhatsappButton size="nav" />
+  </div>
 </header>
+
+<script>
+  const nav = document.getElementById("nav-cta");
+  const targets = [...document.querySelectorAll("[data-page-cta]")];
+
+  if (nav) {
+    if (targets.length === 0 || !("IntersectionObserver" in window)) {
+      // Pages sans bouton dans le contenu (mentions légales…) : toujours visible.
+      nav.dataset.visible = "true";
+    } else {
+      const onScreen = new Set();
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) onScreen.add(entry.target);
+            else onScreen.delete(entry.target);
+          }
+          nav.dataset.visible = String(onScreen.size === 0);
+        },
+        // La barre fait 64 px : un bouton caché dessous compte comme sorti.
+        { rootMargin: "-64px 0px 0px 0px" },
+      );
+      targets.forEach((t) => observer.observe(t));
+    }
+  }
+</script>

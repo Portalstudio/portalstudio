@@ -28,7 +28,7 @@ import { PHONE_DISPLAY, PHONE_TEL, EMAIL_CTA } from "@/lib/contact";
 
     <FadeContent client:visible delay={150}>
       <div class="mt-8 flex flex-col items-center gap-6">
-        <WhatsappButton size="hero" />
+        <div data-page-cta><WhatsappButton size="hero" /></div>
         <div class="flex flex-col items-center gap-3 text-sm text-muted-foreground sm:flex-row sm:gap-6">
           <a href={PHONE_TEL} class="inline-flex items-center gap-2 transition-colors hover:text-foreground">
             <Phone size={15} aria-hidden="true" />
