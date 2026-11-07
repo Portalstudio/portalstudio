@@ -4,7 +4,7 @@ import SectionTitle from "@/components/ui/section-title.astro";
 import SectionDescription from "@/components/ui/section-description.astro";
 import WhatsappButton from "@/components/ui/whatsapp-button.astro";
 import { Phone, Mail } from "lucide-react";
-import { PHONE_DISPLAY, PHONE_TEL, EMAIL } from "@/lib/contact";
+import { PHONE_DISPLAY, PHONE_TEL, EMAIL_CTA } from "@/lib/contact";
 ---
 
 <section id="contact" class="relative scroll-mt-20 overflow-hidden border-t border-border/60 py-16 sm:py-20 lg:py-28">
@@ -34,9 +34,9 @@ import { PHONE_DISPLAY, PHONE_TEL, EMAIL } from "@/lib/contact";
             <Phone size={15} aria-hidden="true" />
             {PHONE_DISPLAY}
           </a>
-          <a href={`mailto:${EMAIL}`} class="inline-flex items-center gap-2 transition-colors hover:text-foreground">
+          <a href={`mailto:${EMAIL_CTA}`} class="inline-flex items-center gap-2 transition-colors hover:text-foreground">
             <Mail size={15} aria-hidden="true" />
-            {EMAIL}
+            {EMAIL_CTA}
           </a>
         </div>
       </div>
