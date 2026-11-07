@@ -1,0 +1,41 @@
+---
+import { MessageCircle } from "lucide-react";
+import { WHATSAPP_URL } from "@/lib/contact";
+import { cn } from "@/lib/utils";
+
+interface Props {
+  /** "nav" : bouton compact de la barre du haut ; "hero" : grand bouton blanc. */
+  size?: "nav" | "hero";
+  class?: string;
+}
+
+const { size = "hero", class: className } = Astro.props;
+
+const base =
+  "group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium transition-all duration-300 outline-none focus-visible:ring-[3px] focus-visible:ring-white/40";
+
+const sizes = {
+  nav: "h-9 px-3 text-sm bg-white text-black hover:bg-white/90",
+  hero: "h-11 px-6 text-sm sm:text-base bg-white text-black shadow-lg hover:bg-white/90 hover:shadow-[0_0_30px_-5px_hsla(0,0%,100%,0.3)] hover:scale-[1.02]",
+};
+---
+
+<a
+  href={WHATSAPP_URL}
+  target="_blank"
+  rel="noopener noreferrer"
+  class={cn(base, sizes[size], className)}
+  aria-label="Proposer un passage sur place, par WhatsApp"
+>
+  <MessageCircle size={size === "nav" ? 16 : 18} aria-hidden="true" />
+  {
+    size === "nav" ? (
+      <>
+        <span class="sm:hidden">Passage sur place</span>
+        <span class="hidden sm:inline">Proposer un passage sur place</span>
+      </>
+    ) : (
+      <span>Proposer un passage sur place</span>
+    )
+  }
+</a>

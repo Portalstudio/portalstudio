@@ -4,45 +4,50 @@ import SectionTitle from "@/components/ui/section-title.astro";
 import SectionDescription from "@/components/ui/section-description.astro";
 import { FadeContent } from "@/components/ui/fade-content";
 import { Card } from "@/components/ui/card";
-import { Focus, Eye, ArrowRight } from "lucide-react";
+import { Armchair, QrCode, Clock } from "lucide-react";
 
-const promises = [
+const tools = [
   {
-    icon: Focus,
-    title: "Une image à la hauteur de votre établissement",
-    description: "Chaque détail de votre présence en ligne reflète votre exigence et renforce votre positionnement haut de gamme.",
+    icon: Armchair,
+    title: "Réservation par place sur votre plan de salle",
+    description:
+      "Vos clients choisissent leur table ou leur place en ligne, y compris des places premium. Vous voyez la soirée se remplir sans décrocher le téléphone.",
   },
   {
-    icon: Eye,
-    title: "Donnez envie avant même la première visite",
-    description: "Votre site devient une extension de l'expérience vécue en salle, un avant-goût qui suscite l'envie.",
+    icon: QrCode,
+    title: "Un menu QR avec photos, relié à vos commandes",
+    description:
+      "Une carte qui donne envie de commander, et des commandes qui arrivent là où votre équipe les voit.",
   },
   {
-    icon: ArrowRight,
-    title: "Transformez l'intérêt en réservation",
-    description: "Un parcours fluide, pensé pour guider naturellement vos clients jusqu'à l'action, sans friction.",
+    icon: Clock,
+    title: "Un outil pour la tâche qui vous prend du temps",
+    description:
+      "Affiches, suivi, préparation de soirée : on part de ce qui vous coûte des heures, et on le simplifie.",
   },
 ];
 ---
 
-<Section>
-  <div class="text-center mb-16">
+<Section id="outils">
+  <div class="text-center mb-12 sm:mb-16">
     <FadeContent client:visible>
-      <SectionTitle eyebrow="Notre promesse">
-        Bien plus qu'un site.
+      <SectionTitle eyebrow="Exemples d'outils">
+        Un outil pour un besoin précis.
       </SectionTitle>
       <SectionDescription>
-        Une expérience pensée pour refléter votre niveau, susciter l'envie et déclencher la réservation.
+        Chaque outil est construit pour votre établissement, avec votre nom et vos couleurs.
       </SectionDescription>
     </FadeContent>
   </div>
 
-  <div class="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    {promises.map(({ icon: Icon, title, description }, idx) => (
-      <FadeContent client:visible delay={100 + idx * 100}>
-        <Card className="bg-card/40 border-foreground/10 p-6 sm:p-8 shadow-none gap-4 transition-all duration-500 hover:border-white/15 hover:shadow-[0_0_30px_-10px_rgba(255,255,255,0.06)]">
-
-          <h3 class="text-foreground text-lg font-semibold tracking-tight leading-none mt-4">
+  <div class="mx-auto grid max-w-5xl gap-5 sm:gap-6 md:grid-cols-3">
+    {tools.map(({ icon: Icon, title, description }, idx) => (
+      <FadeContent client:visible delay={100 + idx * 100} className="flex">
+        <Card className="h-full bg-card/40 border-foreground/10 p-6 sm:p-7 shadow-none gap-3 transition-all duration-500 hover:border-white/15 hover:shadow-[0_0_30px_-10px_rgba(255,255,255,0.06)]">
+          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-foreground/5">
+            <Icon size={18} className="text-foreground/70" aria-hidden="true" />
+          </div>
+          <h3 class="text-foreground text-base sm:text-lg font-semibold tracking-tight leading-snug mt-2">
             {title}
           </h3>
           <p class="text-muted-foreground text-sm leading-relaxed">

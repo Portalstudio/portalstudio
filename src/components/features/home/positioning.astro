@@ -3,19 +3,51 @@ import SectionDescription from "@/components/ui/section-description.astro";
 import SectionTitle from "@/components/ui/section-title.astro";
 import Section from "@/components/ui/section.astro";
 import { FadeContent } from "@/components/ui/fade-content";
-import { PositioningData } from "./positioning-data";
+import { Card } from "@/components/ui/card";
+import { MapPin, Users, Phone } from "lucide-react";
 
+const points = [
+  {
+    icon: MapPin,
+    title: "Je me déplace",
+    description: "Je viens voir votre établissement et votre service, pas seulement une fiche en ligne.",
+  },
+  {
+    icon: Users,
+    title: "Je forme votre équipe",
+    description: "Un outil ne sert que si l'équipe l'utilise. Je l'installe avec elle, sur place.",
+  },
+  {
+    icon: Phone,
+    title: "Je reste joignable",
+    description: "Un souci un soir de service ? Vous avez quelqu'un à Cayenne, pas un support à l'autre bout du monde.",
+  },
+];
 ---
-<Section>
+
+<Section id="local">
   <div class="mx-auto mb-10 max-w-3xl text-center lg:mb-14">
     <FadeContent client:visible>
-      <SectionTitle eyebrow="Positionnement">
-        Nous ne travaillons qu'avec un nombre limité d'établissements.
+      <SectionTitle eyebrow="Sur place">
+        Basé à Cayenne.
       </SectionTitle>
       <SectionDescription>
-        Portalstudio accompagne uniquement les lieux pour qui la présence digitale est un levier de positionnement, pas un simple support.
+        Votre outil est fait ici, par quelqu'un qui peut passer vous voir.
       </SectionDescription>
     </FadeContent>
   </div>
-  <PositioningData />
+
+  <div class="mx-auto grid max-w-5xl gap-4 sm:gap-5 md:grid-cols-3">
+    {points.map(({ icon: Icon, title, description }, idx) => (
+      <FadeContent client:visible delay={100 + idx * 100} className="flex">
+        <Card className="h-full flex-row items-start gap-4 border-foreground/10 bg-card/30 p-5 sm:p-6 shadow-none">
+          <Icon size={18} className="mt-0.5 shrink-0 text-foreground/60" aria-hidden="true" />
+          <div class="space-y-1.5">
+            <h3 class="text-foreground text-base font-semibold leading-snug">{title}</h3>
+            <p class="text-muted-foreground text-sm leading-relaxed">{description}</p>
+          </div>
+        </Card>
+      </FadeContent>
+    ))}
+  </div>
 </Section>
